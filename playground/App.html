@@ -1,0 +1,33 @@
+<script>
+import Shell from '../src/Shell';
+import Panel from '../src/Panel';
+import Menu from '../src/Menu';
+import MenuItem from '../src/MenuItem';
+
+export default {
+  components: { Shell, Panel, Menu, MenuItem },
+  data() {
+    return {
+      menuSelection: 'item1'
+    };
+  },
+  computed: {
+    active(menuSelection) {
+      return function(key) {
+        return key === menuSelection;
+      };
+    }
+  }
+}
+</script>
+<Shell>
+  <Panel style="width: 50px">
+    <Menu>
+      <MenuItem key="item1" active="{{active('item1')}}" icon="list" on:select="set({ menuSelection: 'item1' })" />
+      <MenuItem key="item2" active="{{active('item2')}}" icon="gear" on:select="set({ menuSelection: 'item2' })" />
+    </Menu>
+  </Panel>
+  <Panel style="left: 50px; background: #fff; color: #000">
+    Testing {{menuSelection}}
+  </Panel>
+</Shell>

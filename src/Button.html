@@ -1,0 +1,19 @@
+<button class="size-standard" ref:button on:click="fire('click')">{{yield}}</button>
+<style>
+button {
+  background: #eee;
+  color: #333;
+  border: 1px solid #aaa;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #f9f9f9;
+}
+
+.size-standard {
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+}
+</style>

@@ -1,0 +1,34 @@
+<script>
+import { link } from 'nilutil';
+
+export default {
+  oncreate() {
+    const head = this.refs.container
+      .closest('html')
+      .querySelector('head');
+
+    if (!head.querySelector('link[href*="Roboto"]')) {
+      head.appendChild(link('https://fonts.googleapis.com/css?family=Roboto', 'stylesheet'));
+    }
+  }
+}
+</script>
+<div class="shell-container" ref:container>
+  {{yield}}
+</div>
+<style>
+.shell-container {
+  background: #000;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+</style>

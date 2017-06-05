@@ -1,0 +1,25 @@
+<script>
+import { link } from 'nilutil';
+import Button from './Button';
+
+export default {
+  components: { Button },
+  oncreate() {
+    const head = this.refs.container
+      .closest('html')
+      .querySelector('head');
+
+    if (!head.querySelector('link[href*="font-awesome"]')) {
+      const fa = link('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', 'stylesheet');
+      head.appendChild(fa);
+    }
+
+    const { iconName, icon } = this.refs;
+    const { button } = this.refs.button.refs;
+    button.style.width = `${button.offsetHeight}px`;
+    icon.classList.add(`fa-${iconName.innerText}`);
+  }
+}
+</script>
+<Button ref:button on:click="fire('click')"><i ref:icon class="fa"></i></Button>
+<span style="display: none" ref:iconName>{{yield}}</span>
