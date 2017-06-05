@@ -9,7 +9,7 @@
     "url": "git+https://github.com/nilchaos87/nilui.git"
   },
   "scripts": {
-    "prepublish": "webpack --config webpack.dist.config.js",
+    "postinstall": "webpack --config webpack.dist.config.js",
     "start": "webpack-dev-server --config webpack.playground.config.js"
   },
   "devDependencies": {
