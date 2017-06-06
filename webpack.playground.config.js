@@ -12,10 +12,10 @@ module.exports = {
     rules: [
       {
         test: /\.(html|js)$/,
+        exclude: /node_modules/,
         use: [
           {
             loader: 'babel-loader',
-            exclude: /node_modules/,
             options: babelSettings
           }
         ]

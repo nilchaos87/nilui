@@ -3,9 +3,14 @@ import Shell from '../src/Shell';
 import Panel from '../src/Panel';
 import Menu from '../src/Menu';
 import MenuItem from '../src/MenuItem';
+import Textbox from '../src/Textbox';
+import NumberInput from '../src/NumberInput';
+import Select from '../src/Select';
+import IconButton from '../src/IconButton';
+import Button from '../src/Button';
 
 export default {
-  components: { Shell, Panel, Menu, MenuItem },
+  components: { Shell, Panel, Menu, MenuItem, Textbox, NumberInput, Select, Button, IconButton },
   data() {
     return {
       menuSelection: 'item1'
@@ -27,7 +32,12 @@ export default {
       <MenuItem key="item2" active="{{active('item2')}}" icon="gear" on:select="set({ menuSelection: 'item2' })" />
     </Menu>
   </Panel>
-  <Panel style="left: 50px; background: #fff; color: #000">
+  <Panel style="left: 50px; background: #fff; color: #000; padding: 0.5rem;">
     Testing {{menuSelection}}
+    <Textbox label="Testing" value="" />
+    <NumberInput label="Number" value="5" />
+    <Select label="Whatever" options="{{ ['A', 'B', 'C'] }}" />
+    <Button>Test</Button>
+    <IconButton>list</IconButton>
   </Panel>
 </Shell>
