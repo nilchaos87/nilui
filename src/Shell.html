@@ -1,5 +1,5 @@
 <script>
-import { link } from 'nilutil';
+import { link, meta, favicon } from 'nilutil';
 
 export default {
   oncreate() {
@@ -10,6 +10,9 @@ export default {
     if (!head.querySelector('link[href*="Roboto"]')) {
       head.appendChild(link('https://fonts.googleapis.com/css?family=Roboto', 'stylesheet'));
     }
+    
+    head.appendChild(meta('viewport', 'width=device-width'));
+    this.observe('favicon', url => url && favicon(url));
   }
 }
 </script>
