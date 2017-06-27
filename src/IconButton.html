@@ -16,7 +16,7 @@ export default {
 
     const { iconName, icon } = this.refs;
     const { button } = this.refs.button.refs;
-    button.style.width = `${button.offsetHeight}px`;
+    setTimeout(() => button.style.width = `${button.offsetHeight}px`, 100);
     icon.classList.add(`fa-${iconName.innerText}`);
   }
 }
